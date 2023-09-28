@@ -1,0 +1,16 @@
+ul{
+    list-style-type: none;
+    margin: 20px;
+    padding: 10px;
+    background-color: blue;
+}
+a{
+    color: white;
+}
+li{
+    float: left;
+}
+
+li:not(:first-child){
+    margin-left: 10px;
+}
