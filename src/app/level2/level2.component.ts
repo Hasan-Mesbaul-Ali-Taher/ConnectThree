@@ -47,7 +47,47 @@ export default class Level2Component {
    * @returns player (1 or 2) who has won, or 0 if there is no winner
    */
   private getWinnerIndex():number{
-    return 0;
+    // Check rows
+    for (let row = 0; row < 3; row++) {
+      const first = this.boardContent[row][0];
+      if (
+        first !== 0 &&
+        this.boardContent[row][1] === first &&
+        this.boardContent[row][2] === first
+      ) {
+        return first;
+      }
+    }
+
+    // Check columns
+    for (let col = 0; col < 3; col++) {
+      const first = this.boardContent[0][col];
+      if (
+        first !== 0 &&
+        this.boardContent[1][col] === first &&
+        this.boardContent[2][col] === first
+      ) {
+        return first;
+      }
+    }
+
+    // Check diagonals
+    const first = this.boardContent[1][1];
+    if (first !== 0) {
+      if (
+        this.boardContent[0][0] === first &&
+        this.boardContent[2][2] === first
+      ) {
+        return first;
+      }
+      if (
+        this.boardContent[2][0] === first &&
+        this.boardContent[0][2] === first
+      ) {
+        return first;
+      }
+    }
+    return 0;  
   }
 }
 
