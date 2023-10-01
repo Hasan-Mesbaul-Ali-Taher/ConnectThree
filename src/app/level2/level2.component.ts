@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './level2.component.html',
   styleUrls: ['./level2.component.scss']
 })
-export default class Level2Component {
+export class Level2Component {
   private currentPlayerIx!: number;
   private currentWinnerIx!: number;
   private playerNames: string[];
@@ -29,6 +29,7 @@ export default class Level2Component {
       this.boardContent[row][col] = this.currentPlayerIx;
       this.currentPlayerIx = this.currentPlayerIx === 1 ? 2 : 1;
     }
+    this.currentWinnerIx = this.getWinnerIndex();
   }
 
   public onRestart(){
@@ -88,6 +89,14 @@ export default class Level2Component {
       }
     }
     return 0;  
+  }
+
+  public get winnerIndex():number{
+    return this.currentWinnerIx;
+  }
+
+  public getWinnerName(): string{
+    return this.playerNames[this.currentWinnerIx]
   }
 }
 

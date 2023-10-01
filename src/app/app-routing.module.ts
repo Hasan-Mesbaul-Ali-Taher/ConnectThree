@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Level1Component } from './level1/level1.component';
-import Level2Component from './level2/level2.component';
+import { Level2Component } from './level2/level2.component';
 
 const routes: Routes = [
   {path:'', pathMatch:'full', redirectTo:'level1'},  

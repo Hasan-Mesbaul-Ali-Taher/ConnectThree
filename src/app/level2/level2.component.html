@@ -18,6 +18,6 @@
     </tbody>
 </table>
 
-<h2>The winner is ...</h2>
+<h2 [hidden]="winnerIndex === 0">The winner is {{getWinnerName()}}</h2>
  
 <button (click)="onRestart()">Restart</button>
